@@ -1,0 +1,10 @@
+#readme.text
+To install:
+Python 3
+tkinter
+pyinstaller
+
+
+pip install -U pyinstaller
+pyinstaller your_program.py
+pyinstaller --onefile --windowed myscript.py
