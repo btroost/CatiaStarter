@@ -31,6 +31,10 @@ def CheckLicense(event):
     arg3=r"c:\data\apps\startup\dslsoutputpy.txt"
     #result = subprocess.Popen([arg1, "-admin", "-i", arg2, "-o", arg3])    print (result)
 
+    f = open(arg3, "r")
+    for x in f:
+        print(x)
+
 
 def GUI():
     window=tk.Tk()
