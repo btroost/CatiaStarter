@@ -10,8 +10,17 @@ import xml.etree.ElementTree as ET
 ######################################################################
 
 #  Variables
-Settingsdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
-Workingdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
+OS="mac"        # choose mac or win
+if OS=="mac":
+    Settingsdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
+    Workingdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
+if OS =="win":
+    Settingsdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
+    Workingdir = "/Users/berttroost/develop/GitHub/CatiaStarter/"
+
+#import os
+#os.path.join('app', 'subdir', 'dir', 'filename.foo')
+#'app/subdir/dir/filename.foo'
 
 def getsettingsdata():
     print("getsettingsdata")
@@ -40,10 +49,6 @@ def getsettingsdata():
 
 
 def GUI(settings):
-#for row in settings:
-#    print(row)
-
-
     window=tk.Tk()
     window.title(" Catia Starter ")
     window.geometry("600x400")
@@ -51,11 +56,8 @@ def GUI(settings):
     # Usage Scope
     newlabel = tk.Label(text = " Select your Usagescope ")
     newlabel.grid(column=0,row=0)
-#    dropdown1=tk.OptionMenu(window,tk.IntVar(),"Papendrecht","Hoogerheide","Helmond","Filton")
+    #    dropdown1=tk.OptionMenu(window,tk.IntVar(),"Papendrecht","Hoogerheide","Helmond","Filton")
     dropdown1=tk.OptionMenu(window,tk.IntVar(),settings[0][0],settings[0][1],settings[0][2])
-#    dropdown1=tk.OptionMenu(window,tk.IntVar(),*settings[0],settings[0][1],settings[0][2])
-#    dropdown1=tk.OptionMenu(window,tk.IntVar(),for row in settings:row)
-#    dropdown1.append("extra")  settings
     dropdown1.grid(column = 1, row=0)
 
     # Program
@@ -70,12 +72,12 @@ def GUI(settings):
     dropdown=tk.OptionMenu(window,tk.IntVar(),settings[2][0],settings[2][1])
     dropdown.grid(column = 1, row=2)
 
-    #Start Catia
+    # Button Start Catia
     mybutton = tk.Button(window, text = "Start Catia")
     mybutton.grid(column=1,row=3)
     mybutton.bind("<Button-1>",start)
 
-    #Check licenses
+    # Button Check licenses
     mybutton = tk.Button(window, text = "Check License")
     mybutton.grid(column=0,row=4)
     mybutton.bind("<Button-1>",CheckLicense)
@@ -108,20 +110,20 @@ def start(event):
     root = ET.parse(Settingsdir + 'programs.xml').getroot()
     for program in root.findall("./programs/program[@name='"+program+"']"):
         for variable in program.findall("./variables/variable"):
-            print(variable.find('name').text)
+#            print(variable.find('name').text)
             print(variable.find('value').text)
 
-    # set environment Variables
-    my_env = os.environ.copy()
-    for program in root.findall("./programs/program[@name='"+program+"']"):
+        # set environment Variables
+        my_env = os.environ.copy()
         for variable in program.findall("./envvariables/variable"):
             my_env[variable.find('name').text] = variable.find('value').text
+#            print("test")
 
     #my_env["PATH"] = "/usr/sbin:/sbin:" + my_env["PATH"]
 #    my_env["testvar"] = "MyTestVarValues"
-#    my_command = "export > tstenv.txt"
-    my_command = "c:\data\apps\testenv.cmd"
-    subprocess.Popen(my_command, env=my_env)
+##    my_command = "export > tstenv.txt"
+#    my_command = "c:\data\apps\testenv.cmd"
+#    subprocess.Popen(my_command, env=my_env)
 
     #os.environ['SOMEVAR'] = 'SOMEVAL'
     #you might use my_env.get("PATH", '') instead of my_env["PATH"] in case PATH somehow not defined in the original environment, but other than that it looks fine.
