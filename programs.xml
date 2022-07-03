@@ -1,0 +1,34 @@
+<data>
+  <programs>
+    <program name = "Airbus">
+      <variables>
+        <variable>
+          <name>var1</name>
+          <value>value</value>
+        </variable>
+        <variable>
+          <name>var2</name>
+          <value>value2</value>
+        </variable>
+      </variables>
+      <envvariables>
+        <variable>
+          <name>testvar1</name>
+          <value>value</value>
+        </variable>
+        <variable>
+          <name>testvar2</name>
+          <value>value2</value>
+        </variable>
+      </envvariables>
+    </program>
+    <program name = "Gulfstream">
+      <variables>
+        <variable>
+          <name>var3</name>
+          <value>value3</value>
+        </variable>
+      </variables>
+    </program>
+  </programs>
+</data>
