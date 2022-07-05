@@ -7,14 +7,14 @@
           <value>value</value>
         </variable>
         <variable>
-          <name>var2</name>
-          <value>value2</value>
+          <name>envdir</name>
+          <value>I:\fae_global_env\Airbus</value>
         </variable>
       </variables>
       <envvariables>
         <variable>
-          <name>testvar1</name>
-          <value>value</value>
+          <name>envdir</name>
+          <value>I:\fae_global_env\Airbus</value>
         </variable>
         <variable>
           <name>testvar2</name>
@@ -25,8 +25,26 @@
     <program name = "Gulfstream">
       <variables>
         <variable>
-          <name>var3</name>
-          <value>value3</value>
+          <name>envdir</name>
+          <value>I:\fae_global_env\Gulfstream</value>
+        </variable>
+      </variables>
+      <envvariables>
+        <variable>
+          <name>envdir</name>
+          <value>I:\fae_global_env\Gulfstream</value>
+        </variable>
+        <variable>
+          <name>testvar2</name>
+          <value>value2</value>
+        </variable>
+      </envvariables>
+    </program>
+    <program name = "JSF">
+      <variables>
+        <variable>
+          <name>var4</name>
+          <value>value4</value>
         </variable>
       </variables>
     </program>
